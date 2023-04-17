@@ -33,4 +33,32 @@
 
 # Dynamické programování
 
-# 
+# Binární vyhledávací stromy
+
+## Definice vyhledávacího stromu
+
+## Operace s nevyvažovanými stromy
+
+## AVL stromy
+
+# Haldy
+
+## Binárnní halda
+
+# Hešování
+
+## Hešování s přihrádkami
+
+## Otevřená adresace
+
+# Třídění
+
+## Primitivní třídící algoritmy
+
+## Třídění haldou
+
+## Quicksort
+
+## Dolní odhad složitosti porovnávacích třídících algoritmů
+
+## Přihrádkové třídění čísel a řetězců
