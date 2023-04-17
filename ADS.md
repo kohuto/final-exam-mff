@@ -43,7 +43,8 @@
 
 ## Čas a prostor výpočtu pro konkrétní vstup
 
-([průvodce](#http://pruvodce.ucw.cz/static/pruvodce.pdf))
+([průvodce](http://pruvodce.ucw.cz/static/pruvodce.pdf#page=42))
+
 Nyní spočítáme celkový počet provedených tzv. elementárních operací. Tímto pojmem
 rozumíme především operace sčítání, odčítání, násobení, porovnávání; také základní řídicí
 konstrukce, jako jsou třeba skoky a podmíněné skoky. Zkrátka to, co normální procesor
