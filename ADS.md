@@ -1,4 +1,4 @@
-- Složitost algoritmů
+- [Složitost algoritmů](#Složitost-algoritmů)
 
 # Složitost algoritmů
 
