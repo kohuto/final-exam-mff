@@ -76,18 +76,29 @@ Konstanty můžeme rovněž zanedbat, jsou strojově závislé (elementární op
 
 ([průvodce](http://pruvodce.ucw.cz/static/pruvodce.pdf#page=46))
 
-Už jsme se naučili, jak stanovit dobu běhu algoritmu pro konkrétní vstup. Dokonce jsme
-v příkladech s hvězdičkami uměli dobu běhu vyjádřit jako funkci vstupu. Málokdy to
-půjde tak snadno: vstup bývá mnohem složitější než jedno jediné číslo. Přesto obvykle
-bude platit, že pro „větší“ vstupy program poběží pomaleji než pro ty „menší“.
-Pořídíme si proto nějakou míru velikosti vstupu a čas budeme vyjadřovat v závislosti
-na ní. Pokud program pro různé vstupy téže velikosti běží různě dlouho, uvážíme ten
-nejpomalejší případ – vždy je dobré být připraveni na nejhorší. Tím dostaneme funkci,
-které se říká časová složitost algoritmu.
+Umíme dobu běhu vyjádřit jako funkci vstupu. Vstup ale bývá složitější než jedno číslo. Zavedeme _míru velikosti vstupu_ a čas budeme vyjadřovat v závislosti na ní. Pokud program pro různé vstupy téže velikosti běží různě dlouho, uvážíme ten nejpomalejší případ. Tím dostaneme funkci, které se říká _časová složitost_ algoritmu.
+
+Velikost vstupu se určuje různě. Pokud je vstupem posloupnost čísel, obvykle za velikost považujeme jejich počet. Podobně za velikost řetězce znaků prohlásíme počet znaků. Pro Euklidův algoritmus vezmeme za velikost vstupu maximum ze zadaných čísel.
+
+Kuchařka pro určení velikosti vstupu (není to řádná matematická definice):
+
+1. Ujasníme si, jak se měří velikost vstupu.
+2. Určíme maximální možný počet $f(n)$ elementárních operací algoritmu provedených
+   na vstupu o velikosti $n$ (popř. najdeme alespoň horní odhad).
+3. V $f(n)$ necháme pouze nejrychleji rostoucí člen ($n^2+n$ → $n^2$)
+4. Seškrtáme multiplikativní konstanty
+
+Pro určení prostorové (paměťové) složitosti analogicky spočítáme kolik nejvíce _elementární paměťových buněk_ bude v každém okamžiku použito. Množství spotřebovaných paměťových buněk v závislosit na velikosti vstupu $n$ vyjádříme pomocí funkce $f(n)$ (popř. uděláme horní odhad), aplikujeme čtyřbodovou kuchařku a výsledek zapíšeme pomocí notace $O(g(n))$
 
 ## Složitost v nejlepším, nejhorším a průměrném případě
 
 ## Asymptotická notace
+
+f(n) je třídy O(g(n)),
+jestliže existuje taková kladná reálná konstanta c, že pro skoro všechna n platí f(n) ≤
+cg(n). Skoro všemi n se myslí, že nerovnost může selhat pro konečně mnoho výjimek, tedy
+že existuje nějaké přirozené n0 takové, že nerovnost platí pro všechna $n ≥ n_{0}$. Funkci g(n)
+se pak říká asymptotický horní odhad funkce f(n).
 
 # Třídy složitosti
 
