@@ -22,7 +22,7 @@
     - [Ovladače zařízení a driver stack](#ovladače-zařízení-a-driver-stack)
     - [Obsluha přerušení na úrovni CPU a OS](#obsluha-přerušení-na-úrovni-cpu-a-os)
     - [Výjimky procesoru a jejich obsloužení a vazba na runtime programovacíhojazyka](#výjimky-procesoru-a-jejich-obsloužení-a-vazba-na-runtime-programovacího-jazyka)
-    - - [Procesy a vlákna](#procesy-a-vlákna)
+- [Procesy a vlákna](#procesy-a-vlákna)
   - [kontext procesu a vlákna](#kontext-procesu-a-vlákna)
   - [kooperativní a preemptivní multitasking](#kooperativní-a-preemptivní-multitasking)
   - [plánování](#plánování)
