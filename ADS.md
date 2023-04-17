@@ -1,6 +1,3 @@
-- [Složitost algoritmů](#Složitost-algoritmů)
-  - [Čas a prostor výpočtu pro konkrétní vstup](#čas-a-prostor-výpočtu-pro-konkrétnívstup)
-
 # Složitost algoritmů
 
 ## Čas a prostor výpočtu pro konkrétní vstup
@@ -62,3 +59,21 @@
 ## Dolní odhad složitosti porovnávacích třídících algoritmů
 
 ## Přihrádkové třídění čísel a řetězců
+
+# Grafové algoritmy
+
+## Prohledávání do šířky a do hloubky
+
+## Detekce komponent souvislosti
+
+## Topologické třídění orientovaných grafů
+
+## Nejkratší cesty v ohodnocených grafech
+
+## Minimální kostra grafu
+
+## Toky v sítích
+
+# Algoritmy vyhledávání v textu
+
+# Algebraické algoritmy
