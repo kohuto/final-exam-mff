@@ -41,17 +41,44 @@
 
 # Složitost algoritmů
 
+Obecně: měření je nezávislé na konkrétním zařízení. Pracujeme s teoretickým modelem (Von neumannovský počítač), který se skládá z:
+
+- řídicí jednotka – koordinuje činnost ostatních jednotek
+- aritmeticko-logická jednotka (ALU) – provádí numerické výpočty, ...
+- operační paměť – uchovává data
+- vstupní zařízení – vstup pro data
+- výstupní zařízení – zápis výsledků
+
+Spustíme-li program na reálném počítači několikrát, nejspíš naměříme o něco rozdílné časy, my ale chceme prostředek na měření doby běhu obecně popsaného algoritmu.
+
 ## Čas a prostor výpočtu pro konkrétní vstup
 
 ([průvodce](http://pruvodce.ucw.cz/static/pruvodce.pdf#page=42))
 
-Nyní spočítáme celkový počet provedených tzv. elementárních operací. Tímto pojmem
-rozumíme především operace sčítání, odčítání, násobení, porovnávání; také základní řídicí
-konstrukce, jako jsou třeba skoky a podmíněné skoky. Zkrátka to, co normální procesor
-zvládne jednou nebo nejvýše několika instrukcemi.
-Čas vykonání jedné elementární operace prohlásíme za jednotkový a zbavíme se tak jakýchkoli jednotek ve výsledné době běhu algoritmu.
+Zavedeme _elementární operaci_ (to, co normální procesor
+zvládne jednou nebo nejvýše několika instrukcemi, př. sčítání, násobení). _Elementární operace_ se vykoná za jednotkový čas (zbavili jsme se jednotky).
+
+```
+Vstup: Číslo n
+`---`
+1. Pro i = 1, ... , n opakuj:
+2.      Pro j = 1, ... , i opakuj:
+3.          Vytiskni *.
+
+```
 
 ## Časová a prostorová složitost algoritmu
+
+([průvodce](http://pruvodce.ucw.cz/static/pruvodce.pdf#page=46))
+
+Už jsme se naučili, jak stanovit dobu běhu algoritmu pro konkrétní vstup. Dokonce jsme
+v příkladech s hvězdičkami uměli dobu běhu vyjádřit jako funkci vstupu. Málokdy to
+půjde tak snadno: vstup bývá mnohem složitější než jedno jediné číslo. Přesto obvykle
+bude platit, že pro „větší“ vstupy program poběží pomaleji než pro ty „menší“.
+Pořídíme si proto nějakou míru velikosti vstupu a čas budeme vyjadřovat v závislosti
+na ní. Pokud program pro různé vstupy téže velikosti běží různě dlouho, uvážíme ten
+nejpomalejší případ – vždy je dobré být připraveni na nejhorší. Tím dostaneme funkci,
+které se říká časová složitost algoritmu.
 
 ## Složitost v nejlepším, nejhorším a průměrném případě
 
