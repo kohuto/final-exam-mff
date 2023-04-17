@@ -60,12 +60,17 @@ zvládne jednou nebo nejvýše několika instrukcemi, př. sčítání, násoben
 
 ```
 Vstup: Číslo n
-`---`
+
 1. Pro i = 1, ... , n opakuj:
 2.      Pro j = 1, ... , i opakuj:
-3.          Vytiskni *.
-
+3.          Vytiskni *
 ```
+
+Pro $i = 1$ se provede vnitřní cyklus jedenkrát, pro $i = 2$ dvakrát, pro $i = n$ se provede $n$-krát. Dohromady se vytiskne $1 + 2 + 3 + ... + n = n(n + 1)/2= 2n^2 + 2n$ hvězdiček.
+
+Časová složitost pro konkrétní je tedy matematická funkce, která popisuje, jak se algoritmus chová pro různá $n$ (hodnota na vstupu). Odpadá tak nutnost program spouštět.
+
+Konstanty můžeme rovněž zanedbat, jsou strojově závislé (elementární operace se reálně liší v rychlostech) a chování algoritmu pro velká $n$ nijak zásadně neovlivňují. Dále ve výrazu $2n^2 + 2n$ je pro velká $n$ člen $2n^2$ obrovský oproti $2n$, takže $2n$ můžeme klidně vynechat.
 
 ## Časová a prostorová složitost algoritmu
 
