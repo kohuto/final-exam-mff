@@ -1,43 +1,54 @@
-- [Složitost algoritmů](#složitost-algoritmů)
-  - [Čas a prostor výpočtu pro konkrétní vstup](#čas-a-prostor-výpočtu-pro-konkrétní-vstup)
-  - [Časová a prostorová složitost algoritmu](#časová-a-prostorová-složitost-algoritmu)
-  - [Složitost v nejlepším, nejhorším a průměrném případě](#složitost-v-nejlepším-nejhorším-a-průměrném-případě)
-  - [Asymptotická notace](#asymptotická-notace)
-- [Třídy složitosti](#třídy-složitosti)
-  - [Třídy P a NP](#třídy-p-a-np)
-  - [Převoditelnost problémů](#převoditelnost-problémů)
-  - [NP těžkost a NP úplnost](#np-těžkost-a-np-úplnost)
-  - [Příklady NP úplných problému a převodů mezi nimi](#příklady-np-úplných-problému-a-převodů-mezi-nimi)
-- [Metoda rozděl a panuj](#metoda-rozděl-a-panuj)
-  - [Princip rekurzivního dělení prolému na podproblémy](#princip-rekurzivního-dělení-problému-na-podproblémy)
-  - [Výpočet složitosti pomocí rekurentních rovnic](#výpočet-složitosti-pomocí-rekurentních-rovnic)
-  - [Kuchařková věta](#kuchařková-věta)
-  - [Aplikace (Mergesort, násobení dlouhých čísel, Strassenův algoritmus)](#aplikace-mergesort-násobení-dlouhých-čísel-strassenův-algoritmus)
-- [Dynamické programování](#dynamické-programování)
-- [Binární vyhledávací stromy](#binární-vyhledávací-stromy)
-  - [Definice vyhledávacího stromu](#definice-vyhledávacího-stromu)
-  - [Operace s nevyvažovanými stromy](#operace-s-nevyvažovanými-stromy)
+- [Složitost algoritmů](#slozitost-algoritmu)
+  - [Čas a prostor výpočtu pro konkrétní vstup](#cas-a-prostor-vypoctu-pro-konkretni-vstup)
+  - [Časová a prostorová složitost algoritmu](#casova-a-prostorova-slozitost-algoritmu)
+  - [Složitost v nejlepším, nejhorším a průměrném případě](#slozitost-v-nejlepsim-nejhorsim-a-prumernem-pripade)
+  - [Asymptotická notace](#asymptoticka-notace)
+- [Třídy složitosti](#tridy-slozitosti)
+  - [Třídy P a NP](#tridy-p-a-np)
+  - [Převoditelnost problémů](#prevoditelnost-problemu)
+  - [NP těžkost a NP úplnost](#np-tezkost-a-np-uplnost)
+  - [Příklady NP úplných problému a převodů mezi nimi](#priklady-np-uplnych-problemu-a-prevodu-mezi-nimi)
+- [Metoda rozděl a panuj](#metoda-rozdel-a-panuj)
+  - [Princip rekurzivního dělení problému na podproblémy](#princip-rekurzivniho-deleni-problemu-na-podproblemy)
+  - [Výpočet složitosti pomocí rekurentních rovnic](#vypocet-slozitosti-pomoci-rekurentnich-rovnic)
+  - [Kuchařková věta](#kucharkova-veta)
+  - [Aplikace (Mergesort, násobení dlouhých čísel, Strassenův algoritmus)](#aplikace-mergesort-nasobeni-dlouhych-cisel-strassenuv-algoritmus)
+- [Dynamické programování](#dynamicke-programovani)
+- [Binární vyhledávací stromy](#binarni-vyhledavaci-stromy)
+  - [Definice vyhledávacího stromu](#definice-vyhledavaciho-stromu)
+  - [Operace s nevyvažovanými stromy](#operace-s-nevyvazovanymi-stromy)
+    - [Hledání vrcholu s klíčem $x$](#hledani-vrcholu-s-klicem-x)
+    - [Minimum](#minimum)
+    - [Vkládání](#vkladani)
+    - [Mazání vrcholu $v$](#mazani-vrcholu-v)
   - [AVL stromy](#avl-stromy)
 - [Haldy](#haldy)
-  - [Binárnní halda](#binární-halda)
-- [Hešování](#hešování)
-  - [Hešování s přihrádkami](#hešování-s-přihrádkami)
-  - [Otevřená adresace](#otevřená-adresace)
-- [Třídění](#třídění)
-  - [Primitivní třídící algoritmy](#primitivní-třídící-algoritmy)
-  - [Třídění haldou](#třídění-haldou)
+  - [Binární halda](#binarni-halda)
+    - [Nalezení prvku s nejmenším klíčem](#nalezeni-prvku-s-nejmensim-klicem)
+    - [Přidání nového prvku](#pridani-noveho-prvku)
+    - [Odebrání prvku s nejmenším klíčem](#odebrani-prvku-s-nejmensim-klicem)
+    - [Konstrukce haldy](#konstrukce-haldy)
+- [Hešování](#hesovani)
+  - [Hešování s přihrádkami](#hesovani-s-prihradkami)
+  - [Otevřená adresace](#otevrena-adresace)
+- [Třídění](#trideni)
+  - [Primitivní třídící algoritmy](#primitivni-tridici-algoritmy)
+    - [Bubblesort](#bubblesort)
+    - [Insertsort](#insertsort)
+    - [Selectsort](#selectsort)
+  - [Třídění haldou](#trideni-haldou)
   - [Quicksort](#quicksort)
-  - [Dolní odhad složitosti porovnávacích třídících algoritmů](#dolní-odhad-složitosti-porovnávacích-třídících-algoritmů)
-  - [Přihrádkové třídění čísel a řetězců](#přihrádkové-třídění-čísel-a-řetězců)
-- [Grafové algoritmy](#grafové-algoritmy)
-  - [Prohledávání do šířky a do hloubky](#prohledávání-do-šířky-a-do-hloubky)
+  - [Dolní odhad složitosti porovnávacích třídících algoritmů](#dolni-odhad-slozitosti-porovnavacich-tridicich-algoritmu)
+  - [Přihrádkové třídění čísel a řetězců](#prihradkove-trideni-cisel-a-retezcu)
+- [Grafové algoritmy](#grafove-algoritmy)
+  - [Prohledávání do šířky a do hloubky](#prohledavani-do-sirky-a-do-hloubky)
   - [Detekce komponent souvislosti](#detekce-komponent-souvislosti)
-  - [Topologické třídění orientovaných grafů](#topologické-třídění-orientovaných-grafů)
-  - [Nejkratší cesty v ohodnocených grafech](#nejkratší-cesty-v-ohodnocených-grafech)
-  - [Minimální kostra grafu](#minimální-kostra-grafu)
-  - [Toky v sítích](#toky-v-sítích)
-- [Algoritmy vyhledávání v textu](#algoritmy-vyhledávání-v-textu)
-- [Algebraické algoritmy](#algebraické-algoritmy)
+  - [Topologické třídění orientovaných grafů](#topologicke-trideni-orientovanych-grafu)
+  - [Nejkratší cesty v ohodnocených grafech](#nejkratsi-cesty-v-ohodnocenych-grafech)
+  - [Minimální kostra grafu](#minimalni-kostra-grafu)
+  - [Toky v sítích](#toky-v-sitich)
+- [Algoritmy vyhledávání v textu](#algoritmy-vyhledavani-v-textu)
+- [Algebraické algoritmy](#algebraicke-algoritmy)
 
 # Složitost algoritmů
 
@@ -210,7 +221,7 @@ vrchol v platí $$h(l(v)) − h(r(v)) \leq 1$$ Jinými slovy, hloubka levého a 
 ## Binární halda
 
 ([kuchařka](https://ksp.mff.cuni.cz/kucharky/programatorske-kucharky.pdf#page=27))
-([kuchařka](http://pruvodce.ucw.cz/static/pruvodce.pdf#page=253#page=84))
+([průvodce](http://pruvodce.ucw.cz/static/pruvodce.pdf#page=253#page=84))
 
 _\*Klíč přiřazený prvku $x$ budeme značit $k(x)$. Kdykoliv budeme mluvit o porovnávání prvků, myslíme tím podle klíčů._
 
@@ -248,9 +259,40 @@ Prvky rozmístíme do vrcholů binárního stromu v libovolném pořadí – pok
 
 # Hešování
 
+([kuchařka](https://ksp.mff.cuni.cz/kucharky/programatorske-kucharky.pdf#page=88))
+([průvodce](http://pruvodce.ucw.cz/static/pruvodce.pdf#page=276))
+
 ## Hešování s přihrádkami
 
+Mějme množinu hodnot $U$, konečnou množinu přihrádek $P ={0, \dots , m − 1}$ a hešovací funkci, což bude nějaká funkce $h : U → P$, která každému prvku z $U$ přidělí jednu přihrádku. Chceme-li uložit množinu prvků $X \subseteq U$, pak $\forall x \isin X$ umístíme do přihrádky $h(x)$. Budeme-li pak hledat nějaký prvek $u \isin U$, najdeme ho v přihrádce $h(u)$.
+
+kdykoliv máme nějakou hešovací funkci, můžeme si pořídit pole $p$ přihrádek, v každé pak „řetízek“ – spojový seznam hodnot. Tato jednoduchá datová struktura je jednou z možných forem hešovací tabulky.
+
+Jakou má hešovací tabulka časovou složitost? Hledání, vkládání i mazání sestává z výpočtu hešovací funkce a projití řetízku v příslušné přihrádce. Pokud bychom uvažovali „ideální
+hešovací funkci“, kterou lze spočítat v konstantním čase a která zadanou $n$-prvkovou množinu rozprostře mezi $m$ přihrádek dokonale rovnoměrně, budou mít všechny řetízky $n/m$ prvků. Zvolíme-li navíc počet přihrádek $m \isin \Theta(n)$, vyjde konstantní délka řetízku,
+a tím pádem i časová složitost operací.
+
+Ideální hešovací funkce je jako jednorožec (pro matfyzáka: jako ideální plyn) - neexistuje. Ty, které se však používají jsou např.:
+
+- Lineární kongruence: $x \mapsto ax \mod m$  
+  Zde $m$ je typicky prvočíslo a $a$ je nějaká dostatečně velká konstanta nesoudělná s $m$ ($a$ se nastavuje blízko př. $0.618m$)
+
+### Přehešování
+
 ## Otevřená adresace
+
+Opět si pořídíme pole s m přihrádkami $A[0], \dots , A[m − 1]$, jenže tentokrát se do každé přihrádky vejde jen jeden prvek. Pokud bychom tam potřebovali uložit další, použijeme náhradní přihrádku, bude-li také plná, zkusíme další, atd. (To je princip vkládání). Řekněme, že hešovací funkce každému prvku $x \isin U$ přiřadí jeho vyhledávací posloupnost $h(x, 0), h(x, 1), \dots , h(x, m − 1)$ určující pořadí přihrádek, do kterých se budeme snažit $x$ vložit. Budeme předpokládat, že posloupnost obsahuje všechna čísla přihrádek v dokonale náhodném pořadí.
+
+Při vyhledávání budeme procházet přihrádky $h(x, 0), h(x, 1)$ atd. Zastavíme se, jakmile narazíme buď na $x$, nebo na prázdnou přihrádku.
+
+Nemůže pouze smazat prvek (vyhledávání jiného prvku by skončilo předčasně, protože narazí na přihrádku, která v okamžiku vkládání byla plná, ale nyní už není). Prvky pouze označíme za smazané a až jich bude mnoho (třeba $m/4$), celou strukturu přebudujeme. To nás stojí amortizovaně konstantní čas na smazaný prvek.
+
+V praxi se jako vyhledávací posloupnost používá:
+
+- Lineární přidávání: $h(x, i) = (f(x) + i) \mod m$,
+  kde $f(x)$ je „obyčejná“ hešovací funkce. Využíváme tedy po sobě jdoucí přihrádky.
+- Dvojité hešování: $h(x, i) = (f(x) + i \cdot g(x)) \mod m$,
+  kde $f : U → {0, \dots , m − 1}$ a $g : U → {1, \dots , m − 1}$ jsou dvě různé hešovací funkce a $m$ je prvočíslo. Díky tomu je $g(x)$ vždy nesoudělné s $m$ a posloupnost navštíví každou přihrádku právě jednou.
 
 # Třídění
 
