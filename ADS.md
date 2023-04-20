@@ -499,7 +499,43 @@ Můžeme doplnit mezerami na stejnou délku a pak setřídit (k-tice třídit um
 
 # Grafové algoritmy
 
-## Prohledávání do šířky a do hloubky
+_Neorientovaný graf_ je uspořádaná dvojice $(V, E)$, kde $V$ je neprázdná konečná množina _vrcholů_ (někdy též _uzlů_) a $E \subseteq \binom{V}{2}$ je množina _hran_.
+
+$n$ budeme značit počet vrcholů
+
+$m$ budem značit počet hran
+
+## Prohledávání do šířky
+
+Na vstupu dostaneme konečný orientovaný graf a počáteční vrchol $v_0$. Postupně nacházíme následníky vrcholu $v_0$, pak následníky těchto následníků, atd. až objevíme všechny vrcholy, do nichž se dá z $v_0$ dojít po hranách.
+
+Během výpočtu rozlišujeme tři možné stavy vrcholů:
+
+- Nenalezené – to jsou ty, které jsme na své cestě grafem dosud nepotkali.
+- Otevřené – o těch už víme, ale ještě jsme neprozkoumali hrany, které z nich vedou.
+- Uzavřené – už jsme prozkoumali i hrany, takže se takovými vrcholy nemusíme nadále zabývat.
+
+Na počátku výpočtu tedy chceme prohlásit $v_0$ za otevřený a ostatní vrcholy za nenalezené. Pak $v_0$ uzavřeme a otevřeme všechny jeho následníky. Poté procházíme tyto následníky, uzavíráme je a otevíráme jejich dosud nenalezené následníky atd. Otevřené vrcholy si pamatujeme ve frontě.
+
+```python
+def BFS(self, s): # s as source
+  visited = [False] * (max(self.graph) + 1)
+  queue = []
+  queue.append(s)
+  visited[s] = True
+
+  while queue:
+    s = queue.pop(0)
+    print(s)
+    for i in self.graph[s]:
+      if not visited[i]:
+        queue.append(i)
+        visited[i] = True
+```
+
+BFS doběhne v čase $O(n + m)$ a spotřebuje paměť $\Theta(n + m)$.
+
+## Prohledávání do hloubky
 
 ## Detekce komponent souvislosti
 
