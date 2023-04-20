@@ -372,6 +372,7 @@ def selectionSort(array, size):
 ## Třídění haldou
 
 ([kuchařka](https://ksp.mff.cuni.cz/kucharky/programatorske-kucharky.pdf#page=29))
+([youtube](https://www.youtube.com/watch?v=MtQL_ll5KhQ))
 
 Vytvoříme nejdříve haldu z $N$ prvků na vstupu, načež z ní budeme postupně
 $N$-krát odebírat nejmenší prvek.
@@ -410,9 +411,110 @@ def heapSort(arr):
 
 ## Quicksort
 
+([vizualizace](https://www.programiz.com/dsa/quick-sort))
+
+Algoritmus založen na metodě _rozděl a panuj_.
+
+1. Vstup rozdělíme na levou, pravou a střední část (pivot). Do levé části umístíme prvky, které jsou menší než pivot, do pravé části umístíme prvky větší než pivot.
+2. Zavoláme Quicksort na levou část.
+3. Zavoláme Quicksort na pravou část.
+
+```python
+def partition(array, low, high): # low is starting index
+	pivot = array[high] # rightmost element as pivot
+	i = low - 1 # pointer where ends lower elements
+
+	for j in range(low, high): # compare each element with pivot
+		if array[j] <= pivot:
+			i = i + 1
+			(array[i], array[j]) = (array[j], array[i])
+	# Swap the pivot element with the greater element specified by i
+	(array[i + 1], array[high]) = (array[high], array[i + 1])
+	return i + 1 # position of pivot
+
+def quickSort(array, low, high):
+	if low < high:
+		pi = partition(array, low, high) # position of pivot
+		quickSort(array, low, pi - 1)
+		quickSort(array, pi + 1, high)
+```
+
+Většinou se ale pivot volí náhodně z dosud nesetříděného úseku.
+
 ## Dolní odhad složitosti porovnávacích třídících algoritmů
 
 ## Přihrádkové třídění čísel a řetězců
+
+zaměříme na konkrétní druhy dat, například celá kladná čísla z předem daného intervalu.
+
+### Countingsort - třídění počítáním
+
+Třídíme $n$ celých čísel vybraných z množiny ${1, \dots , r}$ pro nepříliš velké $r$. V setřízené posloupnosti jsou nějaké jedničky, pak dvojky, atd. Stačí tedy zjistit, kolik má být kterých, čili spočítat, kolikrát se každé číslo od $1$ do $r$ na vstupu vyskytuje.
+
+```python
+def countingSort(array):
+    output = [0] * len(array)
+    countArrayLength = max(array) + 1
+    countArray = [0] * countArrayLength
+
+    for el in inputArray:
+      countArray[el] += 1
+
+    # Store the cummulative count
+    for i in range(1, countArrayLength):
+        countArray[i] += countArray[i-1]
+
+    # place the elements in output array
+    i = len(array) - 1
+    while i >= 0:
+        output[count[array[i]] - 1] = array[i]
+        count[array[i]] -= 1
+        i -= 1
+
+   return output
+```
+
+### Bucketsort - přihrádkové třídění
+
+([vizualizace](https://www.dotnetportal.cz/clanek/134/Trideni-v-linearnim-case-a-prihradkove-trideni-retezcu))
+![Tux, the Linux mascot](/images/bucket_sort.png)
+Řekněme, že máme posloupnost desetinných čísel, kterou chceme setřídit. Pořídíme si 10 přihrádek. Do první umístíme čísla 0-1, do druhé 1-2, atd. až do poslední 9-10 (desetinné číslo vždy nejdříve vynásobíme 10 a vezmeme celou část). Každou přihrádku poté setřídíme zvlášť libovolným třídícím algoritmem. Poté projdeme přihrádky a překopírujeme do původního pole.
+
+```python
+def bucketSort(array):
+    bucket = []
+    for i in range(len(array)): # Create empty buckets
+        bucket.append([])
+
+    # Insert elements into their respective buckets
+    for j in array:
+        index_b = int(10 * j)
+        bucket[index_b].append(j)
+
+    # Sort the elements of each bucket
+    for i in range(len(array)):
+        bucket[i] = sorted(bucket[i])
+
+    # Get the sorted elements
+    k = 0
+    for i in range(len(array)):
+        for j in range(len(bucket[i])):
+            array[k] = bucket[i][j]
+            k += 1
+    return array
+```
+
+### Lexikografický Bucketsort
+
+Nyní uvažme případ, kdy klíče nejsou malá celá čísla, nýbrž uspořádané k-tice takových
+čísel. Úkolem je seřadit tyto k-tice lexikograficky (slovníkově): nejprve podle první souřadnice, v případě shody podle druhé, a tak dále.
+Praktičtější je postupovat opačně: nejprve k-tice setřídit podle poslední souřadnice, pak
+je stabilně setřídit podle předposlední, . . . až nakonec podle první. Díky stabilitě získáme lexikografické pořadí. Stačí tedy k-krát aplikovat předchozí algoritmus přihrádkového
+třídění.
+
+### Třídění řetězců
+
+Chceme lexikograficky setřídit řetězce (pokud při porovnávání jeden řetězec skončí dřív než druhý, ten kratší bude menší).
 
 # Grafové algoritmy
 
