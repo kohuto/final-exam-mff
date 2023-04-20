@@ -493,7 +493,9 @@ třídění.
 
 ### Třídění řetězců
 
-Chceme lexikograficky setřídit řetězce (pokud při porovnávání jeden řetězec skončí dřív než druhý, ten kratší bude menší).
+Chceme lexikograficky setřídit řetězce různé délky (pokud při porovnávání jeden řetězec skončí dřív než druhý, ten kratší bude menší).
+
+Můžeme doplnit mezerami na stejnou délku a pak setřídit (k-tice třídit umíme). Proč to není dobrý nápad? Mějme $k$ řetězců, kde prvních $k – 1$ z nich bude mít délku 1 a poslední řetězec bude dlouhý přesně $k$. Vstup má tedy délku $2k – 1$ a my doplníme prvních $k – 1$ řetězců mezerami. Vidíme, že algoritmus teď bude pracovat v čase $O(k^2)$.
 
 # Grafové algoritmy
 
