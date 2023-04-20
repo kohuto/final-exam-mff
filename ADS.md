@@ -449,7 +449,13 @@ zaměříme na konkrétní druhy dat, například celá kladná čísla z přede
 
 ### Countingsort - třídění počítáním
 
+([vizualizace](https://www.dotnetportal.cz/clanek/134/Trideni-v-linearnim-case-a-prihradkove-trideni-retezcu))
+
 Třídíme $n$ celých čísel vybraných z množiny ${1, \dots , r}$ pro nepříliš velké $r$. V setřízené posloupnosti jsou nějaké jedničky, pak dvojky, atd. Stačí tedy zjistit, kolik má být kterých, čili spočítat, kolikrát se každé číslo od $1$ do $r$ na vstupu vyskytuje.
+
+Pokročilejší verze poupraví pomocné pole výskytů tak, že ke každé položce přičte počet výskytů předchozích položek. Tím u každé získá přesnou pozici hranice, na které bude toto číslo končit v setříděném poli. Nepřepisuje si vstupní pole, ale pro výstup potřebuje ještě jedno výsledné pole délky n. Prochází vstupní pole, vždy každý prvek umístí na pozici napočítanou v pomocném poli a tuto pozici sníží o 1. Výsledné pole tak zaplňuje jakoby pro každé číslo odzadu.
+
+![Tux, the Linux mascot](/images/bucket_sort.png)
 
 ```python
 def countingSort(array):
@@ -476,41 +482,14 @@ def countingSort(array):
 
 ### Bucketsort - přihrádkové třídění
 
-([vizualizace](https://www.dotnetportal.cz/clanek/134/Trideni-v-linearnim-case-a-prihradkove-trideni-retezcu))
-![Tux, the Linux mascot](/images/bucket_sort.png)
-Řekněme, že máme posloupnost desetinných čísel, kterou chceme setřídit. Pořídíme si 10 přihrádek. Do první umístíme čísla 0-1, do druhé 1-2, atd. až do poslední 9-10 (desetinné číslo vždy nejdříve vynásobíme 10 a vezmeme celou část). Každou přihrádku poté setřídíme zvlášť libovolným třídícím algoritmem. Poté projdeme přihrádky a překopírujeme do původního pole.
-
-```python
-def bucketSort(array):
-    bucket = []
-    for i in range(len(array)): # Create empty buckets
-        bucket.append([])
-
-    # Insert elements into their respective buckets
-    for j in array:
-        index_b = int(10 * j)
-        bucket[index_b].append(j)
-
-    # Sort the elements of each bucket
-    for i in range(len(array)):
-        bucket[i] = sorted(bucket[i])
-
-    # Get the sorted elements
-    k = 0
-    for i in range(len(array)):
-        for j in range(len(bucket[i])):
-            array[k] = bucket[i][j]
-            k += 1
-    return array
-```
+Pojďme třídit záznamy. Každý záznam je dvojice _klíč_ a _data_. Záznamy chceme třídit podle klíče. Použijeme pokročilejší verzi counting sortu. Spočítáme počty prvků označených stejným číslem a opět upravíme toto pomocné pole, aby ukazovalo na místo, kde bude končit poslední prvek s tímto číslem. Potom zase postupně bereme prvky ze vstupního pole, snižujeme pozici napočítanou v pomocném poli a tyto prvky vkládáme do výsledného pole. Když budeme vstupní pole procházet zezazdu, bude třídění dokonce stabilní.
 
 ### Lexikografický Bucketsort
 
-Nyní uvažme případ, kdy klíče nejsou malá celá čísla, nýbrž uspořádané k-tice takových
-čísel. Úkolem je seřadit tyto k-tice lexikograficky (slovníkově): nejprve podle první souřadnice, v případě shody podle druhé, a tak dále.
-Praktičtější je postupovat opačně: nejprve k-tice setřídit podle poslední souřadnice, pak
-je stabilně setřídit podle předposlední, . . . až nakonec podle první. Díky stabilitě získáme lexikografické pořadí. Stačí tedy k-krát aplikovat předchozí algoritmus přihrádkového
+Nyní uvažme případ, kdy klíče jsou k-tice Úkolem je seřadit k-tice lexikograficky. Je praktické třídit opačně lexikograficky (od posledního znaku k prvnímu). Díky stabilitě získáme lexikografické pořadí. Stačí tedy k-krát aplikovat předchozí algoritmus přihrádkového
 třídění.
+
+![Tux, the Linux mascot](/images/k_lexikografic_bucket_sort.png)
 
 ### Třídění řetězců
 
